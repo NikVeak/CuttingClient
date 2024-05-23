@@ -32,6 +32,7 @@
     "electron:start": "electron .",
     "electron:package:mac": "yarn build && electron-builder -m -c.extraMetadata.main=build/electron.js",
     "electron:package:win": "yarn build && electron-packager . CutOpt --platform=win32 --arch=x64 --out=dist --overwrite --prune",
+    "package-npm-win": "electron-packager . CutOpt --platform=win32 --arch=x64 --out=dist --overwrite --prune",
     "electron:package:linux": "yarn build && electron-builder -l -c.extraMetadata.main=build/electron.js"
   },
   "jest": {
@@ -65,10 +66,7 @@
     },
     "linux": {
       "target": "deb"
-    },
-    "extraResources": [
-      "python/dist/main.exe"
-    ]
+    }
   },
   "eslintConfig": {
     "extends": [
