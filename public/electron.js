@@ -7,7 +7,6 @@ const fs = require('fs');
 const iconv = require('iconv-lite'); // Подключаем библиотеку для работы с кодировками
 const { exec } = require('child_process');
 require('v8-compile-cache');
-const {error} = require("webpack-node-externals/utils");
 // -----------------------------------------------------------------------------
 
 // -----------------------------------------------------------------------------
@@ -55,7 +54,7 @@ function clearLogFile() {
 
 function startServerService()
 {
-    const pathToExeFile = 'python/dist/main.exe';
+    const pathToExeFile = 'dist/main.exe';
     const exePath = path.join(__dirname, pathToExeFile);
     exeProcess = exec(exePath, { encoding: 'utf-8' }, (err, stdout, stderr) => {
         if (err) {
@@ -91,11 +90,19 @@ function createWindow() {
             contextIsolation: false,
         }
     });
-
-    //mainWindow.loadURL("http://localhost:3000");
     windows.push(mainWindow);
+    if (process.env.NODE_ENV === 'production') {
+        mainWindow.loadFile('build/index.html');
+        // Запуск логики для продакшен-среды
+    } else {
+        mainWindow.loadURL("http://localhost:3000")
+        mainWindow.webContents.openDevTools(); //режим разработчика
+        // Запуск логики для разработки
+    }
+    //mainWindow.loadURL("http://localhost:3000");
 
-    mainWindow.loadFile('build/index.html');
+
+
     mainWindow.once('ready-to-show', () => {
         mainWindow.show();
         if (loadingWindow) {
@@ -110,7 +117,7 @@ function createWindow() {
         exeProcess.kill();
         mainWindow = null;
     });
-    mainWindow.webContents.openDevTools(); //режим разработчика
+
 
     // Добавляем обработчик события close для окна
     mainWindow.on('close', (event) => {
