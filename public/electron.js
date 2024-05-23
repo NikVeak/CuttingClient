@@ -72,24 +72,6 @@ function startServerService()
     exeProcess.stdout.pipe(logStream);
     exeProcess.stderr.pipe(logStream);
 }
-/*ipcMain.on('runExternalExe', (event, pathToExeFile) => {
-    event.preventDefault();
-    const exePath = path.join(__dirname, pathToExeFile);
-    exeProcess = exec(exePath, { encoding: 'utf-8' }, (err, stdout, stderr) => {
-        if (err) {
-            console.error(err);
-            return;
-        }
-        const decodedOutput = iconv.decode(Buffer.from(stdout, 'binary'), 'utf-8'); // Декодируем вывод
-        console.log(decodedOutput);
-    });
-
-    clearLogFile(); // Вызов функции для очистки файла логирования
-    // Перенаправление вывода в лог-файл
-    const logStream = fs.createWriteStream(logFilePath, { flags: 'a' });
-    exeProcess.stdout.pipe(logStream);
-    exeProcess.stderr.pipe(logStream);
-});*/
 // -----------------------------------------------------------------------------
 
 
@@ -110,10 +92,10 @@ function createWindow() {
         }
     });
 
-    mainWindow.loadURL("http://localhost:3000");
+    //mainWindow.loadURL("http://localhost:3000");
     windows.push(mainWindow);
 
-    //await mainWindow.loadFile('build/index.html');
+    mainWindow.loadFile('build/index.html');
     mainWindow.once('ready-to-show', () => {
         mainWindow.show();
         if (loadingWindow) {
