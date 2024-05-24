@@ -1,6 +1,6 @@
 
 // -----------------------------------------------------------------------------
-const { app, BrowserWindow, contextBridge,dialog,Menu, ipcMain, nativeTheme} = require('electron');
+const { app, BrowserWindow,dialog,Menu, ipcMain, nativeTheme} = require('electron');
 const path = require("path");
 const url = require("url");
 const fs = require('fs');
@@ -52,6 +52,7 @@ function clearLogFile() {
 
 // -----------------------------------------------------------------------------
 
+
 function startServerService()
 {
     const pathToExeFile = 'dist/main.exe';
@@ -91,14 +92,15 @@ function createWindow() {
         }
     });
     windows.push(mainWindow);
-    if (process.env.NODE_ENV === 'production') {
-        mainWindow.loadFile('build/index.html');
+    mainWindow.loadFile('build/index.html');
+    /*if (process.env.NODE_ENV === 'production') {
+
         // Запуск логики для продакшен-среды
     } else {
         mainWindow.loadURL("http://localhost:3000")
         mainWindow.webContents.openDevTools(); //режим разработчика
         // Запуск логики для разработки
-    }
+    }*/
     //mainWindow.loadURL("http://localhost:3000");
 
 
