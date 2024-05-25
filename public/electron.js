@@ -102,7 +102,7 @@ function createWindow() {
     }*/
     //mainWindow.loadURL("http://localhost:3000");
 
-    mainWindow.webContents.openDevTools(); //режим разработчика
+    //mainWindow.webContents.openDevTools(); //режим разработчика
 
 
     mainWindow.once('ready-to-show', () => {
