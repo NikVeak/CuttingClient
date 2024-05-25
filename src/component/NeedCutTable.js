@@ -37,10 +37,10 @@ const NeedCutTable = React.memo((props)=>{
     };
 
     return (
-        <div className="wrapperTable">
+        <div className="wrapperTable" data-testid="need-cut">
             <div><h5>Ввод нарезаемых заготовок</h5></div>
 
-            <table className="table">
+            <table className="table" data-testid="table-need">
                 <thead>
                 <tr>
                     <th>№</th>
@@ -57,6 +57,7 @@ const NeedCutTable = React.memo((props)=>{
                         </td>
                         <td id="cuts">
                             <input className="tableInput" key={row.id}
+                                   name="length_cut"
                                    value={row.cuts}
                                    placeholder="Длина"
                                    onChange={(e) =>
@@ -65,6 +66,7 @@ const NeedCutTable = React.memo((props)=>{
                         </td>
                         <td id="counts">
                             <input className="tableInput" key={row.id}
+                                   name="length_count"
                                    value={row.counts}
                                    placeholder="Количество"
                                    onChange={(e) =>

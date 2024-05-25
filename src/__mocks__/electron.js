@@ -1,13 +1,12 @@
-const ipcRenderer = {
-    // Mock implementation for 'on' method
-    on: jest.fn(),
-
-    // Mock implementation for 'send' method
-    send: jest.fn(),
-
-    // Add any other necessary mock implementations here
-};
-
-module.exports = {
-    ipcRenderer,
+export const ipcRenderer = {
+    events: {},
+    on(event, data) {
+        this.events[event](event, data);
+    },
+    send(event) {
+        this.events[event](event);
+    },
+    removeAllListeners(event) {
+        this.events[event] = undefined;
+    }
 };

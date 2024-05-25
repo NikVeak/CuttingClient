@@ -78,7 +78,7 @@ function startServerService()
 // -----------------------------------------------------------------------------
 function createWindow() {
     mainWindow = new BrowserWindow({
-        width: 1200,
+        width: 1300,
         height: 900,
         title:"Приложение оптимального раскроя",
         maxHeight:1080,
@@ -98,11 +98,11 @@ function createWindow() {
         // Запуск логики для продакшен-среды
     } else {
         mainWindow.loadURL("http://localhost:3000")
-        mainWindow.webContents.openDevTools(); //режим разработчика
         // Запуск логики для разработки
     }*/
     //mainWindow.loadURL("http://localhost:3000");
 
+    mainWindow.webContents.openDevTools(); //режим разработчика
 
 
     mainWindow.once('ready-to-show', () => {
