@@ -516,7 +516,7 @@ const Basis = React.memo(function Basis(props){
                 ) : (<p></p>)}
                 <div className="res">
                     {loading ? (<p></p>) : (
-                        <div className="res-wrapper">
+                        <div className="res-wrapper" data-testid="res">
                             <h3> Вариант раскроя </h3>
                             <table className="resultTable">
                                 <thead>

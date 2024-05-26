@@ -95,7 +95,7 @@ const Header = React.memo(function Header({exportTable, headers, cuttingOption, 
                            href="#">Инструменты</a>
                         <ul data-testid="inpFile">
                             <li>
-                                <button className="buttonActive" onClick={handleOpenHistoryCuts}>
+                                <button className="buttonActive" data-testid="openHistory" onClick={handleOpenHistoryCuts}>
                                     История раскроя
                                 </button>
                             </li>

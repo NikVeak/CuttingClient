@@ -641,9 +641,7 @@ svg{
     height:auto;
     order:3;
 }
-.padd{
-    margin-top: 5%;
-}
+
 .res-wrapper{
     /*position: absolute;*/
     top:60%;
@@ -675,7 +673,7 @@ svg{
     font-size: 18px;
     font-weight: bold;
 }
-svg{
+.rectangle{
     display: flex;
     padding-left: 3%;
     margin-right: 10px;
@@ -683,6 +681,18 @@ svg{
     color:#000000;
     font-size: 18px;
     font-weight: bold;
+    margin-left: 2%;
+}
+.square{
+    display: flex;
+    border: 2px solid white;
+    color:#000000;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #3C4B57;
+}
+.wrapperSquare{
+    padding-left: 3%;
 }
 .resultTable{
 

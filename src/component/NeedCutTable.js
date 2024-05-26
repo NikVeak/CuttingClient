@@ -55,7 +55,7 @@ const NeedCutTable = React.memo((props)=>{
                         <td id="id">
                             {row.id}
                         </td>
-                        <td id="cuts">
+                        <td id="cuts" >
                             <input className="tableInput" key={row.id}
                                    name="length_cut"
                                    value={row.cuts}
