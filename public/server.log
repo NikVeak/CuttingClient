@@ -1,4 +1,57 @@
-INFO:     Started server process [1044]
+INFO:     Started server process [21600]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+pulp\pulp.py:1316: UserWarning: Spaces are not permitted in the name. Converted to '_'
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - C:\Users\nikit\AppData\Local\Temp\_MEI116643\pulp\solverdir\cbc\win\64\cbc.exe C:\Users\nikit\AppData\Local\Temp\10b3e645e65145f09a14e2ce298882bb-pulp.mps -sec 5 -timeMode elapsed -branch -printingOptions all -solution C:\Users\nikit\AppData\Local\Temp\10b3e645e65145f09a14e2ce298882bb-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 7 COLUMNS
+At line 89 RHS
+At line 92 BOUNDS
+At line 111 ENDATA
+Problem MODEL has 2 rows, 18 columns and 27 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 5
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 1989 - 0.00 seconds
+Cgl0004I processed model has 2 rows, 17 columns (17 integer (12 of which binary)) and 27 elements
+Cutoff increment increased from 1e-05 to 2.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 1989
+Cbc0038I Cleaned solution of 1989
+Cbc0038I Before mini branch and bound, 17 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 1989 - took 0.00 seconds
+Cbc0012I Integer solution of 1989 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective 1989, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 1989 to 1989
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                1989.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.01   (Wallclock seconds):       0.00
+
+x18 = 1.0
+��������� ������ ���������: 1989.0
+[2, 5]
+INFO:     127.0.0.1:61257 - "POST /linear-cut/ HTTP/1.1" 200 OK

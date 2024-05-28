@@ -69,21 +69,6 @@ const Header = React.memo(function Header({exportTable, headers, cuttingOption, 
                         <a className="menu-caret" href="#">Меню</a>
                         <ul>
                             <li>
-                                <label>
-                                    <Link to="/">
-                                        Линейный раскрой
-                                    </Link>
-                                </label>
-                            </li>
-                            <li>
-
-                                <label>
-                                    <Link to="/double">
-                                        Двумерный раскрой
-                                    </Link>
-                                </label>
-                            </li>
-                            <li>
                                 <button className="buttonActive" onClick={handleExitApp}>
                                     Выход
                                 </button>
@@ -110,9 +95,7 @@ const Header = React.memo(function Header({exportTable, headers, cuttingOption, 
                                     <span>Импорт из Excel</span>
                                 </label>
                             </li>
-                            <li>
-                                <button className="buttonActive">Печать</button>
-                            </li>
+
                         </ul>
                     </li>
                     <li>
