@@ -90,7 +90,7 @@ function createWindow() {
         }
     });
     windows.push(mainWindow);
-    mainWindow.loadFile('build/index.html');
+    ///mainWindow.loadFile('build/index.html');
     /*if (process.env.NODE_ENV === 'production') {
 
         // Запуск логики для продакшен-среды
@@ -99,8 +99,8 @@ function createWindow() {
         mainWindow.webContents.openDevTools(); //режим разработчика
         // Запуск логики для разработки
     }*/
-    //mainWindow.loadURL("http://localhost:3000");
-    //mainWindow.webContents.openDevTools();
+    mainWindow.loadURL("http://localhost:3000");
+    mainWindow.webContents.openDevTools();
 
 
     mainWindow.once('ready-to-show', () => {
