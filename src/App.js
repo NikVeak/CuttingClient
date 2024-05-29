@@ -1,32 +1,20 @@
 import './App.css';
-import {lazy, Suspense} from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import DoubleBasis from "./component/DoubleBasis";
-
+import React, {lazy, Suspense} from "react";
 let ipcRenderer;
 try {
     const electronWindow = window.require('electron');
     ipcRenderer = electronWindow.ipcRenderer;
 } catch (error) {
-
+    console.log(error);
 }
 
 const Basis = lazy(()=> import('./component/Basis'));
 function App() {
   return (
     <div className="App">
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={
-                    <Basis/>}>
-
-                </Route>
-                <Route path="/double"
-                       element={<DoubleBasis/>}>
-                </Route>
-            </Routes>
-        </BrowserRouter>
-
+        <Suspense fallback={<div>Загрузка...</div>}>
+            <Basis/>
+        </Suspense>
     </div>
   );
 }

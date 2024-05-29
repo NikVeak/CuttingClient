@@ -1,14 +1,12 @@
-import React, {useState} from "react";
+import React from "react";
 import * as XLSX from "xlsx";
-import {Link} from "react-router-dom";
-//const { ipcRenderer } = window.require('electron');
+
 let ipcRenderer;
 try {
     const electronWindow = window.require('electron');
     ipcRenderer = electronWindow.ipcRenderer;
 } catch (error) {
-    // Handle the error here, e.g., log it or display a message
-
+    console.log(error);
 }
 
 const Header = React.memo(function Header({exportTable, headers, cuttingOption, onImportData}) {
