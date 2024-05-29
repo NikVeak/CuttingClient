@@ -4,11 +4,11 @@
 # IntelliJ project files
 .idea
 *.iml
+.tmp
 dist
 node_modules
 public/server/dist
 public/server/build
-cypress
 coverage
 errors.log
 public/server.log
