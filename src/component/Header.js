@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import * as XLSX from "xlsx";
+import {Link} from "react-router-dom";
 //const { ipcRenderer } = window.require('electron');
 let ipcRenderer;
 try {
@@ -60,15 +61,6 @@ const Header = React.memo(function Header({exportTable, headers, cuttingOption, 
         ipcRenderer.send('open-history-cuts');
     }
 
-    const [subMenuOpen, setSubMenuOpen] = useState(false);
-
-    const handleMouseEnter = () => {
-        setSubMenuOpen(true);
-    };
-
-    const handleMouseLeave = () => {
-        setSubMenuOpen(false);
-    };
     return (
         <header data-testid="header">
             <div className="menu">
@@ -78,12 +70,17 @@ const Header = React.memo(function Header({exportTable, headers, cuttingOption, 
                         <ul>
                             <li>
                                 <label>
-                                    Линейный раскрой
+                                    <Link to="/">
+                                        Линейный раскрой
+                                    </Link>
                                 </label>
                             </li>
                             <li>
+
                                 <label>
-                                    Двумерный раскрой
+                                    <Link to="/double">
+                                        Двумерный раскрой
+                                    </Link>
                                 </label>
                             </li>
                             <li>
@@ -96,9 +93,9 @@ const Header = React.memo(function Header({exportTable, headers, cuttingOption, 
                     <li>
                         <a className="menu-caret"
                            href="#">Инструменты</a>
-                        <ul>
+                        <ul data-testid="inpFile">
                             <li>
-                                <button className="buttonActive" onClick={handleOpenHistoryCuts}>
+                                <button className="buttonActive" data-testid="openHistory" onClick={handleOpenHistoryCuts}>
                                     История раскроя
                                 </button>
                             </li>

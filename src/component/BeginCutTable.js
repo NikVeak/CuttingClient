@@ -27,13 +27,13 @@ const BeginCutTable = React.memo(({setInputValueTable})=>{
 
     return (
         <div className="wrapperTable">
-            <table className="table" id="tableBegin">
+            <table className="table" id="tableBegin" data-testid="begin-cut">
                 <thead>
                 <tr>
                     <th>№</th>
                     <th>Исходная длина (мм)</th>
                     <th>
-                        <button className="" data-testid="addRow" id="addRow" onClick={addRow}>+</button>
+                        <button className="" data-testid="addRowBegin" id="addRow" onClick={addRow}>+</button>
                     </th>
                 </tr>
                 </thead>
@@ -46,6 +46,7 @@ const BeginCutTable = React.memo(({setInputValueTable})=>{
                         <td id="cuts">
                             <input className="tableInput" key={row.id}
                                    value={row.cuts}
+                                   name="original_length"
                                    placeholder="Длина"
                                    onChange={(e)=>
                                        handleInputChange(row.id, "cuts", e.target.value)}

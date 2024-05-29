@@ -6,14 +6,14 @@ describe('BeginCutTable Component', () => {
     test('renders table correctly', () => {
         const handleBeginDataChange = jest.fn();
         const { getByText, getByLabelText, getByTestId } = render(<BeginCutTable setInputValueTable={handleBeginDataChange} />);
-        expect(getByTestId('addRow')).toBeInTheDocument();
+        expect(getByTestId('addRowBegin')).toBeInTheDocument();
     });
 
     test('adds a row when "Добавить заготовку" button is clicked', () => {
         const handleBeginDataChange = jest.fn();
         const { getByTestId, getAllByRole } = render(<BeginCutTable setInputValueTable={handleBeginDataChange} />);
 
-        const addButton = getByTestId('addRow');
+        const addButton = getByTestId('addRowBegin');
         fireEvent.click(addButton);
 
         const rows = getAllByRole('row');
@@ -25,7 +25,7 @@ describe('BeginCutTable Component', () => {
         const { getByTestId, getAllByRole, queryByTestId } =
             render(<BeginCutTable setInputValueTable={handleBeginDataChange} />);
 
-        const addButton = getByTestId('addRow');
+        const addButton = getByTestId('addRowBegin');
         fireEvent.click(addButton);
 
         const deleteButton = getByTestId('row-1');

@@ -1,12 +1,10 @@
-
 // -----------------------------------------------------------------------------
-const { app, BrowserWindow, contextBridge,dialog,Menu, ipcMain, nativeTheme} = require('electron');
+const { app, BrowserWindow,dialog,Menu, ipcMain, nativeTheme} = require('electron');
 const path = require("path");
 const url = require("url");
 const fs = require('fs');
 const iconv = require('iconv-lite'); // Подключаем библиотеку для работы с кодировками
 const { exec } = require('child_process');
-require('v8-compile-cache');
 // -----------------------------------------------------------------------------
 
 // -----------------------------------------------------------------------------
@@ -52,9 +50,10 @@ function clearLogFile() {
 
 // -----------------------------------------------------------------------------
 
+
 function startServerService()
 {
-    const pathToExeFile = 'dist/main.exe';
+    const pathToExeFile = 'server/dist/main.exe';
     const exePath = path.join(__dirname, pathToExeFile);
     exeProcess = exec(exePath, { encoding: 'utf-8' }, (err, stdout, stderr) => {
         if (err) {
@@ -91,16 +90,17 @@ function createWindow() {
         }
     });
     windows.push(mainWindow);
-    if (process.env.NODE_ENV === 'production') {
-        mainWindow.loadFile('build/index.html');
+    ///mainWindow.loadFile('build/index.html');
+    /*if (process.env.NODE_ENV === 'production') {
+
         // Запуск логики для продакшен-среды
     } else {
         mainWindow.loadURL("http://localhost:3000")
         mainWindow.webContents.openDevTools(); //режим разработчика
         // Запуск логики для разработки
-    }
-    //mainWindow.loadURL("http://localhost:3000");
-
+    }*/
+    mainWindow.loadURL("http://localhost:3000");
+    mainWindow.webContents.openDevTools();
 
 
     mainWindow.once('ready-to-show', () => {
@@ -162,12 +162,12 @@ ipcMain.on('load-data', (event) => {
 function createLoadingWindow(){
     startServerService();
     loadingWindow = new BrowserWindow({
-       width:400,
-       height: 300,
-       frame: false,
-       webPreferences:{
-           nodeIntegration:true
-       }
+        width:400,
+        height: 300,
+        frame: false,
+        webPreferences:{
+            nodeIntegration:true
+        }
     });
 
     loadingWindow.loadFile(path.join(__dirname, 'loading.html'));
