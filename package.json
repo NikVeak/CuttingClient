@@ -84,8 +84,6 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios-mock-adapter": "^1.22.0",
-    "cross-env": "^7.0.3",
     "electron": "^29.0.1",
     "electron-installer-windows": "^3.0.0",
     "electron-mock-ipc": "^0.3.12",
