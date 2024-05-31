@@ -330,14 +330,14 @@ const Basis = React.memo(function Basis(props){
                 let result_data_draw;
                 let result_data_table;
                 let headers = [];
-                axios.post('http://localhost:8000/linear-cut/', cutOptions)
+                axios.post('http://localhost:8000/linear-cut/', cutOptions, {timeout: 5000 })
                     .then(response=>{
                         console.log(response.data)
                         result_data_draw = response.data["result_maps"];
                         result_data_table = response.data["maps"];
                         if (result_data_draw.length === 0)
                         {
-                            axios.post('http://localhost:8000/linear-cut-dynamic', cutOptions).then(
+                            axios.post('http://localhost:8000/linear-cut-dynamic', cutOptions, {timeout: 5000 }).then(
                                 response=>{
                                     result_data_draw = response.data["result_maps"];
                                     result_data_table = response.data["maps"];
@@ -355,6 +355,9 @@ const Basis = React.memo(function Basis(props){
                                 }
                             ).catch(error=>{
                                 console.log(error);
+                                setLoading(false);
+                                ipcRenderer.send("uncorrect-enter", {"type": 1, "message": "Ошибка ! Неверные входные данные !"});
+                                return 1;
                             })
                         }else{
                             setCuts(cut_lengths);
@@ -371,6 +374,9 @@ const Basis = React.memo(function Basis(props){
                         }
                     }).catch(error=>{
                     console.error(error);
+                    setLoading(false);
+                    ipcRenderer.send("uncorrect-enter", {"type": 1, "message": "Ошибка ! Неверные входные данные !"});
+                    return 1;
                 });
 
             } catch (e) {
