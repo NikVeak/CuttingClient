@@ -1,4 +1,4 @@
-INFO:     Started server process [21600]
+INFO:     Started server process [16316]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
@@ -7,51 +7,117 @@ Welcome to the CBC MILP Solver
 Version: 2.10.3 
 Build Date: Dec 15 2019 
 
-command line - C:\Users\nikit\AppData\Local\Temp\_MEI116643\pulp\solverdir\cbc\win\64\cbc.exe C:\Users\nikit\AppData\Local\Temp\10b3e645e65145f09a14e2ce298882bb-pulp.mps -sec 5 -timeMode elapsed -branch -printingOptions all -solution C:\Users\nikit\AppData\Local\Temp\10b3e645e65145f09a14e2ce298882bb-pulp.sol (default strategy 1)
+command line - C:\Users\nikit\AppData\Local\Temp\_MEI81642\pulp\solverdir\cbc\win\64\cbc.exe C:\Users\nikit\AppData\Local\Temp\52f5dab3f4c448bf87fed57949554534-pulp.mps -sec 5 -timeMode elapsed -branch -printingOptions all -solution C:\Users\nikit\AppData\Local\Temp\52f5dab3f4c448bf87fed57949554534-pulp.sol (default strategy 1)
 At line 2 NAME          MODEL
 At line 3 ROWS
-At line 7 COLUMNS
-At line 89 RHS
-At line 92 BOUNDS
-At line 111 ENDATA
-Problem MODEL has 2 rows, 18 columns and 27 elements
+At line 9 COLUMNS
+At line 911 RHS
+At line 916 BOUNDS
+At line 1088 ENDATA
+Problem MODEL has 4 rows, 171 columns and 388 elements
 Coin0008I MODEL read with 0 errors
 seconds was changed from 1e+100 to 5
 Option for timeMode changed from cpu to elapsed
-Continuous objective value is 1989 - 0.00 seconds
-Cgl0004I processed model has 2 rows, 17 columns (17 integer (12 of which binary)) and 27 elements
-Cutoff increment increased from 1e-05 to 2.9999
-Cbc0038I Initial state - 0 integers unsatisfied sum - 0
-Cbc0038I Solution found of 1989
-Cbc0038I Cleaned solution of 1989
-Cbc0038I Before mini branch and bound, 17 integers at bound fixed and 0 continuous
-Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
-Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 1989 - took 0.00 seconds
-Cbc0012I Integer solution of 1989 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
-Cbc0001I Search completed - best objective 1989, took 0 iterations and 0 nodes (0.00 seconds)
-Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
-Cuts at root node changed objective from 1989 to 1989
-Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Continuous objective value is 509 - 0.00 seconds
+Cgl0004I processed model has 3 rows, 169 columns (169 integer (127 of which binary)) and 386 elements
+Cutoff increment increased from 1e-05 to 0.9999
+Cbc0038I Initial state - 3 integers unsatisfied sum - 0.85
+Cbc0038I Pass   1: suminf.    1.00000 (3) obj. 2409 iterations 1
+Cbc0038I Pass   2: suminf.    0.00000 (0) obj. 10409 iterations 3
+Cbc0038I Solution found of 10409
+Cbc0038I Cleaned solution of 10409
+Cbc0038I Before mini branch and bound, 164 integers at bound fixed and 0 continuous
+Cbc0038I Full problem 3 rows 169 columns, reduced to 2 rows 3 columns
+Cbc0038I Mini branch and bound improved solution from 10409 to 10409 (0.01 seconds)
+Cbc0038I Round again with cutoff of 9418.1
+Cbc0038I Pass   3: suminf.    1.00000 (3) obj. 2409 iterations 0
+Cbc0038I Pass   4: suminf.    0.33030 (3) obj. 9418.1 iterations 3
+Cbc0038I Solution found of 9418.1
+Cbc0038I Branch and bound needed to clear up 3 general integers
+Cbc0038I Full problem 4 rows 169 columns, reduced to 4 rows 42 columns
+Cbc0038I Cleaned solution of 4409
+Cbc0038I Before mini branch and bound, 163 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (0.01 seconds)
+Cbc0038I Round again with cutoff of 3628.2
+Cbc0038I Reduced cost fixing fixed 50 variables on major pass 3
+Cbc0038I Pass   5: suminf.    0.88462 (3) obj. 947.462 iterations 2
+Cbc0038I Pass   6: suminf.    0.86987 (4) obj. 3628.2 iterations 4
+Cbc0038I Pass   7: suminf.    1.12500 (3) obj. 2159 iterations 2
+Cbc0038I Pass   8: suminf.    0.45303 (4) obj. 3628.2 iterations 2
+Cbc0038I Pass   9: suminf.    1.00000 (4) obj. 3628.2 iterations 2
+Cbc0038I Pass  10: suminf.    0.97493 (3) obj. 3628.2 iterations 8
+Cbc0038I Pass  11: suminf.    0.66667 (2) obj. 3075.67 iterations 1
+Cbc0038I Pass  12: suminf.    1.16667 (3) obj. 3628.2 iterations 2
+Cbc0038I Pass  13: suminf.    0.83333 (2) obj. 1909 iterations 1
+Cbc0038I Pass  14: suminf.    0.87745 (4) obj. 3628.2 iterations 6
+Cbc0038I Pass  15: suminf.    0.63467 (4) obj. 3628.2 iterations 4
+Cbc0038I Pass  16: suminf.    1.00000 (3) obj. 3409 iterations 2
+Cbc0038I Pass  17: suminf.    1.27227 (4) obj. 3628.2 iterations 5
+Cbc0038I Pass  18: suminf.    1.10613 (4) obj. 3628.2 iterations 4
+Cbc0038I Pass  19: suminf.    0.85714 (3) obj. 3551.86 iterations 2
+Cbc0038I Pass  20: suminf.    0.79107 (4) obj. 3628.2 iterations 5
+Cbc0038I Pass  21: suminf.    0.32187 (4) obj. 3628.2 iterations 7
+Cbc0038I Pass  22: suminf.    0.28080 (3) obj. 3628.2 iterations 2
+Cbc0038I Pass  23: suminf.    0.83333 (2) obj. 1909 iterations 1
+Cbc0038I Pass  24: suminf.    0.85387 (3) obj. 3628.2 iterations 1
+Cbc0038I Pass  25: suminf.    0.53253 (3) obj. 3628.2 iterations 7
+Cbc0038I Pass  26: suminf.    0.54545 (2) obj. 3318.09 iterations 1
+Cbc0038I Pass  27: suminf.    0.60960 (3) obj. 3628.2 iterations 3
+Cbc0038I Pass  28: suminf.    0.32143 (2) obj. 3123.29 iterations 2
+Cbc0038I Pass  29: suminf.    0.90067 (3) obj. 3628.2 iterations 1
+Cbc0038I Pass  30: suminf.    0.69570 (4) obj. 3628.2 iterations 3
+Cbc0038I Pass  31: suminf.    0.73013 (4) obj. 3628.2 iterations 1
+Cbc0038I Pass  32: suminf.    0.66667 (2) obj. 2409 iterations 2
+Cbc0038I Solution found of 2409
+Cbc0038I Branch and bound needed to clear up 2 general integers
+Cbc0038I Mini branch and bound could not fix general integers
+Cbc0038I No solution found this major pass
+Cbc0038I Before mini branch and bound, 140 integers at bound fixed and 0 continuous
+Cbc0038I Full problem 3 rows 169 columns, reduced to 3 rows 29 columns
+Cbc0038I Mini branch and bound did not improve solution (0.01 seconds)
+Cbc0038I After 0.01 seconds - Feasibility pump exiting with objective of 4409 - took 0.01 seconds
+Cbc0012I Integer solution of 4409 found by feasibility pump after 0 iterations and 0 nodes (0.01 seconds)
+Cbc0031I 6 added rows had average density of 123
+Cbc0013I At root node, 14 cuts changed objective from 509 to 4409 in 11 passes
+Cbc0014I Cut generator 0 (Probing) - 5 row cuts average 55.4 elements, 1 column cuts (1 active)  in 0.007 seconds - new frequency is 1
+Cbc0014I Cut generator 1 (Gomory) - 3 row cuts average 133.7 elements, 0 column cuts (0 active)  in 0.000 seconds - new frequency is -100
+Cbc0014I Cut generator 2 (Knapsack) - 1 row cuts average 3.0 elements, 0 column cuts (0 active)  in 0.000 seconds - new frequency is 1
+Cbc0014I Cut generator 3 (Clique) - 0 row cuts average 0.0 elements, 0 column cuts (0 active)  in 0.000 seconds - new frequency is -100
+Cbc0014I Cut generator 4 (MixedIntegerRounding2) - 26 row cuts average 124.0 elements, 0 column cuts (0 active)  in 0.002 seconds - new frequency is 1
+Cbc0014I Cut generator 5 (FlowCover) - 9 row cuts average 4.3 elements, 0 column cuts (0 active)  in 0.002 seconds - new frequency is 1
+Cbc0014I Cut generator 6 (TwoMirCuts) - 54 row cuts average 111.7 elements, 0 column cuts (0 active)  in 0.004 seconds - new frequency is -100
+Cbc0014I Cut generator 7 (ZeroHalf) - 8 row cuts average 120.3 elements, 0 column cuts (0 active)  in 0.002 seconds - new frequency is 1
+Cbc0001I Search completed - best objective 4409, took 105 iterations and 0 nodes (0.03 seconds)
+Cbc0035I Maximum depth 0, 59 variables fixed on reduced cost
+Cuts at root node changed objective from 509 to 4409
+Probing was tried 11 times and created 6 cuts of which 0 were active after adding rounds of cuts (0.007 seconds)
+Gomory was tried 11 times and created 3 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 11 times and created 1 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 11 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 11 times and created 26 cuts of which 0 were active after adding rounds of cuts (0.002 seconds)
+FlowCover was tried 11 times and created 9 cuts of which 0 were active after adding rounds of cuts (0.002 seconds)
+TwoMirCuts was tried 11 times and created 54 cuts of which 0 were active after adding rounds of cuts (0.004 seconds)
+ZeroHalf was tried 11 times and created 8 cuts of which 0 were active after adding rounds of cuts (0.002 seconds)
 
 Result - Optimal solution found
 
-Objective value:                1989.00000000
+Objective value:                4409.00000000
 Enumerated nodes:               0
-Total iterations:               0
-Time (CPU seconds):             0.00
-Time (Wallclock seconds):       0.00
+Total iterations:               105
+Time (CPU seconds):             0.04
+Time (Wallclock seconds):       0.04
 
 Option for printingOptions changed from normal to all
-Total time (CPU seconds):       0.01   (Wallclock seconds):       0.00
+Total time (CPU seconds):       0.04   (Wallclock seconds):       0.04
 
-x18 = 1.0
-��������� ������ ���������: 1989.0
-[2, 5]
-INFO:     127.0.0.1:61257 - "POST /linear-cut/ HTTP/1.1" 200 OK
+x28 = 4.0
+x80 = 1.0
+x91 = 1.0
+��������� ������ ���������: 4409.0
+[0, 1, 1, 0]
+[0, 1, 1, 0]
+[0, 1, 1, 0]
+[0, 1, 1, 0]
+[1, 0, 0, 6]
+[1, 1, 0, 6]
+INFO:     127.0.0.1:50103 - "POST /linear-cut/ HTTP/1.1" 200 OK

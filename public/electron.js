@@ -72,13 +72,29 @@ function startServerService()
 }
 // -----------------------------------------------------------------------------
 
-
+ipcMain.on('save-svg', async (event, svgDataArray) => {
+    const savePath = await dialog.showSaveDialog({
+        title: 'Save SVG File',
+        defaultPath: path.join(app.getPath('documents'), 'combined.svg'),
+        filters: [{ name: 'SVG Files', extensions: ['svg'] }]
+    });
+    console.log(svgDataArray);
+    if (!savePath.canceled) {
+        try {
+            const combinedSVG = svgDataArray.join('<br/>'); // Separate SVGs with new lines
+            fs.writeFileSync(savePath.filePath, combinedSVG, 'utf-8');
+            //fs.writeFileSync(savePath.filePath, svgDataArray, 'utf-8');
+            console.log(`SVG data saved to ${savePath.filePath}`);
+        } catch (error) {
+            console.error('Error saving SVG:', error);
+        }
+    }
+});
 // -----------------------------------------------------------------------------
 function createWindow() {
     mainWindow = new BrowserWindow({
         width: 1200,
         height: 900,
-        title:"Приложение оптимального раскроя",
         maxHeight:1080,
         maxWidth:1920,
         show: false,
@@ -90,7 +106,7 @@ function createWindow() {
         }
     });
     windows.push(mainWindow);
-    mainWindow.loadFile('build/index.html');
+    //mainWindow.loadFile('build/index.html');
     /*if (process.env.NODE_ENV === 'production') {
 
         // Запуск логики для продакшен-среды
@@ -99,8 +115,8 @@ function createWindow() {
         mainWindow.webContents.openDevTools(); //режим разработчика
         // Запуск логики для разработки
     }*/
-    //mainWindow.loadURL("http://localhost:3000");
-    //mainWindow.webContents.openDevTools();
+    mainWindow.loadURL("http://localhost:3000");
+    mainWindow.webContents.openDevTools();
 
 
     mainWindow.once('ready-to-show', () => {
@@ -184,21 +200,6 @@ function createLoadingWindow(){
 }
 
 app.whenReady().then(createLoadingWindow)
-
-// -----------------------------------------------------------------------------
-ipcMain.handle('dark-mode:toggle', () => {
-    if (nativeTheme.shouldUseDarkColors) {
-        nativeTheme.themeSource = 'light'
-    } else {
-        nativeTheme.themeSource = 'dark'
-    }
-    return nativeTheme.shouldUseDarkColors;
-});
-
-ipcMain.handle('dark-mode:system', () => {
-    nativeTheme.themeSource = 'system';
-});
-// -----------------------------------------------------------------------------
 
 
 // Функция для закрытия всех окон

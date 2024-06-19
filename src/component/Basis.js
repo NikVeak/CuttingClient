@@ -7,7 +7,8 @@ import {findAndCountDuplicates,
     hasZeros,
     hasZeroIn,
     isLessThanAny} from "./helpers/helper"
-//const { ipcRenderer } = window.require('electron');
+
+
 let ipcRenderer;
 try {
     const electronWindow = window.require('electron');
@@ -449,6 +450,7 @@ const Basis = React.memo(function Basis(props){
                     </Suspense>
 
 
+
                 </form>) : (<form data-testid="form-input-simple" onSubmit={countCutsLinear}>
                     <div className="begin">
                         <ul>
@@ -535,7 +537,6 @@ const Basis = React.memo(function Basis(props){
                             <p>Подсказка: черным цветом показано использование заготовки, серым остаток</p>
                             <Canvas maps={data} thickness={thickness} angle={angle}/>
                             <div className="padd"></div>
-
                         </div>
                     )}
                 </div>

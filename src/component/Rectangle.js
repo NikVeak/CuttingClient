@@ -3,7 +3,6 @@ import React from "react"
 const Rectangle = ({rectanglesData}) => {
     return (
         <svg width="2500" height="120" className="rectangle">
-            {/* Маппинг данных прямоугольников и отображение каждого прямоугольника */}
             {rectanglesData.map((rectangle, index) => (
                 <g key={index} className="all-rect">
 
@@ -19,7 +18,7 @@ const Rectangle = ({rectanglesData}) => {
                                     ${rectangle.x3},
                                     ${rectangle.y3}
                                     ${rectangle.x4}
-                                    ${rectangle.y4}                               
+                                    ${rectangle.y4}
                             `
                         }
                         fill={rectangle.color}
