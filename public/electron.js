@@ -72,24 +72,34 @@ function startServerService()
 }
 // -----------------------------------------------------------------------------
 
-ipcMain.on('save-svg', async (event, svgDataArray) => {
-    const savePath = await dialog.showSaveDialog({
+
+
+let savePath;
+ipcMain.on('save-svg', async (event) => {
+    const defaultFileName = 'combined.svg'; // Начальное имя файла по умолчанию
+    savePath = await dialog.showSaveDialog({
         title: 'Save SVG File',
-        defaultPath: path.join(app.getPath('documents'), 'combined.svg'),
-        filters: [{ name: 'SVG Files', extensions: ['svg'] }]
+        defaultPath: path.join(app.getPath('documents'), defaultFileName),
+        filters: [{ name: 'SVG Files', extensions: ['svg'] }],
+        buttonLabel: 'Save', // Название кнопки для сохранения
+        properties: ['createDirectory'] // Разрешение на создание новой папки
     });
-    console.log(svgDataArray);
+
     if (!savePath.canceled) {
-        try {
-            const combinedSVG = svgDataArray.join('<br/>'); // Separate SVGs with new lines
-            fs.writeFileSync(savePath.filePath, combinedSVG, 'utf-8');
-            //fs.writeFileSync(savePath.filePath, svgDataArray, 'utf-8');
-            console.log(`SVG data saved to ${savePath.filePath}`);
-        } catch (error) {
-            console.error('Error saving SVG:', error);
-        }
+        event.sender.send('begin_save_svg');
     }
 });
+
+ipcMain.on('saving-svg', (event, { svgData, index }) => {
+    // Save SVG data to a file
+    const fileName = `image_${index}.svg`;
+    const directoryPath = path.dirname(savePath.filePath); // Путь к выбранной пользователем папке
+    const filePath = path.join(directoryPath, fileName);
+     // Adjust filename as needed
+    fs.writeFileSync(filePath, svgData, 'utf-8');
+    console.log(`SVG data saved to ${fileName}`);
+});
+
 // -----------------------------------------------------------------------------
 function createWindow() {
     mainWindow = new BrowserWindow({

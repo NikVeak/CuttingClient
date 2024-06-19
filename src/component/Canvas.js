@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from "react"
+import React from "react"
 import Rectangle from "./Rectangle";
 import {findAndCountDuplicates} from "./helpers/helper"
+
 let ipcRenderer;
 try {
     const electronWindow = window.require('electron');
@@ -84,17 +85,20 @@ const Canvas = ({maps, thickness, angle}) => {
         remain = "";
     }
 
-    const handleSaveSVG = async () => {
-        const svgElements = document.querySelectorAll('.rectangle');
-        const svgDataArray = [];
 
-        svgElements.forEach(svgElement => {
-            const svgData = new XMLSerializer().serializeToString(svgElement);
-            svgDataArray.push(svgData);
+    const handleSaveSVG = async () => {
+
+        const svgElements = document.querySelectorAll('.rectangle'); // Select all SVG elements
+
+        ipcRenderer.send('save-svg');
+        ipcRenderer.on('begin_save_svg', (event)=>{
+            svgElements.forEach((svgElement, index) => {
+                const svgData = new XMLSerializer().serializeToString(svgElement);
+                // Send SVG data to Electron main process
+                ipcRenderer.send('saving-svg', { svgData, index }); // Adjust index as needed
+            });
         });
 
-        // Send SVG data array to Electron main process
-        await ipcRenderer.send('save-svg', svgDataArray);
     };
     return(
         <div>
